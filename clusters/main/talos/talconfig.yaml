@@ -27,12 +27,6 @@ nodes:
     - hostname: k8s-control-1
       ipAddress: ${MASTER1IP_IP}
       controlPlane: true
-      schematic:
-        customization:
-          systemExtensions:
-            officialExtensions:
-              - siderolabs/nonfree-kmod-nvidia-lts
-              - siderolabs/nvidia-container-toolkit-lts
       nameservers:
         - 1.1.1.1
         - 8.8.8.8
@@ -64,6 +58,8 @@ controlPlane:
                     - siderolabs/util-linux-tools
                     - siderolabs/iscsi-tools
                     - siderolabs/qemu-guest-agent
+                    - siderolabs/nonfree-kmod-nvidia-lts
+                    - siderolabs/nvidia-container-toolkit-lts
     machineFiles:
     - content: |
         [plugins."io.containerd.cri.v1.images"]
@@ -95,6 +91,8 @@ worker:
                     - siderolabs/util-linux-tools
                     - siderolabs/iscsi-tools
                     - siderolabs/qemu-guest-agent
+                    - siderolabs/nonfree-kmod-nvidia-lts
+                    - siderolabs/nvidia-container-toolkit-lts
     machineFiles:
     - content: |
         [plugins."io.containerd.cri.v1.images"]
