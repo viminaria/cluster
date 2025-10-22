@@ -50,9 +50,6 @@ spec:
     hubble:
       enabled: false
     cluster:
-        name: main
-        id: 1
-    cluster:
       name: ${CLUSTERNAME}
       id: 1
     ipv4NativeRoutingCIDR: ${PODNET}
