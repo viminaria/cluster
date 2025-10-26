@@ -3,6 +3,5 @@
   "extends": [
     "config:recommended",
     "github>trueforge-org/truecharts//.github/renovate/main.json5"
-    "github>viminaria/cluster//.github/custom.json5"
   ]
 }
