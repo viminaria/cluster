@@ -12,3 +12,4 @@ resources:
   - nextcloud/ks.yaml
   - ollama/ks.yaml
   - spoolman/ks.yaml
+  - metube/ks.yaml
