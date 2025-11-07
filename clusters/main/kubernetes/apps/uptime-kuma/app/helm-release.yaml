@@ -36,8 +36,8 @@ spec:
           certManager:
             enabled: true
             certificateIssuer: domain-0-le-prod
-          hosts:
-            - host: status.${DOMAIN_0}
+        hosts:
+          - host: status.${DOMAIN_0}
     persistence:
       config:
         enabled: true
