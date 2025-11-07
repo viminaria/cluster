@@ -28,6 +28,16 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: internal
+        integrations:
+          certManager:
+            enabled: true
+            certificateIssuer: domain-0-le-prod
+          hosts:
+            - host: status.${DOMAIN_0}
     persistence:
       config:
         enabled: true
