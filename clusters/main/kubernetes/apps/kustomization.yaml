@@ -13,3 +13,4 @@ resources:
   - ollama/ks.yaml
   - spoolman/ks.yaml
   - metube/ks.yaml
+  - uptime-kuma/ks.yaml
