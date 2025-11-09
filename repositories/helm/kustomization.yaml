@@ -8,7 +8,10 @@ resources:
   - cloudnative-pg.yaml
   - home-ops-mirror.yaml
   - jetstack.yaml
+  - kubernetes-dashboard.yaml
   - kustomization.yaml
+  - metallb.yaml
+  - node-feature-discovery.yaml
   - prometheus-community.yaml
   - spegel.yaml
   - truecharts.yaml
