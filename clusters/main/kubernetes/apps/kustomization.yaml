@@ -14,3 +14,4 @@ resources:
   - spoolman/ks.yaml
   - metube/ks.yaml
   - uptime-kuma/ks.yaml
+  - myspeed/ks.yaml
