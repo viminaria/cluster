@@ -37,6 +37,9 @@ spec:
         enabled: true
         type: LoadBalancer
         loadBalancerIP: ${MINECRAFT_IP}
+        integrations:
+          metallb:
+            enabled: true
         ports:
           main:
             enabled: true
