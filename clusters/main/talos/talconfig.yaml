@@ -20,7 +20,6 @@ cniConfig:
     name: none
 patches:
     - '@./patches/all.yaml'
-    - '@./patches/nvidia.yaml'
     - '@./patches/wg-easy-sysctls.yaml'
 nodes:
     # We would adivce to always stick to a "k8s-something-1" style naming scheme
@@ -42,6 +41,16 @@ nodes:
               gateway: ${GATEWAY}
           vip:
             ip: ${VIP}
+      schematic:
+        customization:
+          systemExtensions:
+            officialExtensions:
+              - siderolabs/util-linux-tools
+              - siderolabs/iscsi-tools
+              - siderolabs/nonfree-kmod-nvidia-lts
+              - siderolabs/nvidia-container-toolkit-lts
+      patches:
+        - '@./patches/nvidia.yaml'
 controlPlane:
     patches:
         - '@./patches/controlplane.yaml'
@@ -57,9 +66,6 @@ controlPlane:
                 officialExtensions:
                     - siderolabs/util-linux-tools
                     - siderolabs/iscsi-tools
-                    - siderolabs/qemu-guest-agent
-                    - siderolabs/nonfree-kmod-nvidia-lts
-                    - siderolabs/nvidia-container-toolkit-lts
     machineFiles:
     - content: |
         [plugins."io.containerd.cri.v1.images"]
@@ -90,9 +96,6 @@ worker:
                 officialExtensions:
                     - siderolabs/util-linux-tools
                     - siderolabs/iscsi-tools
-                    - siderolabs/qemu-guest-agent
-                    - siderolabs/nonfree-kmod-nvidia-lts
-                    - siderolabs/nvidia-container-toolkit-lts
     machineFiles:
     - content: |
         [plugins."io.containerd.cri.v1.images"]
