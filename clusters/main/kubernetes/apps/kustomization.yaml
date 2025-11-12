@@ -7,12 +7,11 @@ resources:
   - ozrates-static/ks.yaml
   - viminariacom-static/ks.yaml
   - wg-easy/ks.yaml
-  # - minecraft-gate/ks.yaml
-  # - minecraft-java/ks.yaml
+  - minecraft-java/ks.yaml
+  - minecraft-router/ks.yaml
   - nextcloud/ks.yaml
   - ollama/ks.yaml
   - spoolman/ks.yaml
   - metube/ks.yaml
   - uptime-kuma/ks.yaml
   - myspeed/ks.yaml
-  # - minecraft-router/ks.yaml
