@@ -35,6 +35,12 @@ spec:
         runAsGroup: 0
     service:
       main:
+        podSpec:
+          containers:
+            main:
+              env:
+                SPOOLMAN_DIR_DATA: "{{ .Values.persistence.data.path }}"
+                SPOOLMAN_DIR_LOGS: "{{ .Values.persistence.logs.path }}"
         ports:
           main:
             port: 8000
@@ -54,5 +60,9 @@ spec:
     persistence:
       data:
         type: nfs
-        path: ${SPOOLMAN_NFS_PATH}
+        path: ${SPOOLMAN_DATA_PATH}
+        server: ${PROXMOX_IP}
+      logs:
+        type: nfs
+        path: ${SPOOLMAN_LOGS_PATH}
         server: ${PROXMOX_IP}
