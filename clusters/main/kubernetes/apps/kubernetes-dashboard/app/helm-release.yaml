@@ -30,10 +30,21 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    global:
+      stopAll: false
     service:
       main:
         type: LoadBalancer
         loadBalancerIP: ${DASHBOARD_IP}
+        integrations:
+          metallb:
+            enabled: true
         ports:
           main:
             port: 80
+    podOptions:
+      enableServiceLinks: true
+    configmap:
+      kubernetes-dashboard-settings:
+        data:
+          settings: '{"itemsPerPage":100,"defaultNamespace":"_all"}'
