@@ -1,0 +1,74 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: comfyui
+  namespace: comfyui
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: app-template
+      version: 15.29.5
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 5m
+  install:
+    createNamespace: true
+    crds: CreateReplace
+    remediation:
+      retries: 3
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: 3
+  timeout: 20m
+  values:
+    global:
+      stopAll: true
+    image:
+      repository: lecode-official/comfyui-docker
+      pullPolicy: IfNotPresent
+      tag: latest@sha256:3c1317455224184bd18aaf096f64ef4d2f289fcb2277c792d9d08b4b7b003046
+    # securityContext:
+    #   container:
+    #     runAsNonRoot: false
+    #     readOnlyRootFilesystem: false
+    #     runAsUser: 0
+    #     runAsGroup: 0
+    service:
+      main:
+        ports:
+          main:
+            port: 8188
+    workload:
+      main:
+        podSpec:
+          runtimeClassName: nvidia
+          containers:
+            main:
+              resources:
+                limits:
+                  nvidia.com/gpu: 1
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "internal" 
+        annotations:
+          gatus.home-operations.com/enabled: "false"
+        hosts:
+          - host: sd.${DOMAIN_0}
+            paths:
+              - path: /
+                pathType: Prefix
+        integrations:
+          nginx:
+            enabled: true
+          certManager:
+            enabled: true
+            certificateIssuer: general-le-prod
+    persistence:
+      main:
+        enabled: true
+        mountPath: /opt/comfyui
