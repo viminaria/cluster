@@ -17,4 +17,4 @@ resources:
   - myspeed/ks.yaml
   - home-assistant/ks.yaml
   - searxng/ks.yaml
-  # - comfyui/ks.yaml
+  - comfyui/ks.yaml

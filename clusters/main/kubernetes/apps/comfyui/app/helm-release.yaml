@@ -31,12 +31,13 @@ spec:
       repository: ghcr.io/lecode-official/comfyui-docker
       pullPolicy: IfNotPresent
       tag: 0.5.0@sha256:3c1317455224184bd18aaf096f64ef4d2f289fcb2277c792d9d08b4b7b003046
-    # securityContext:
-    #   container:
-    #     runAsNonRoot: false
-    #     readOnlyRootFilesystem: false
-    #     runAsUser: 0
-    #     runAsGroup: 0
+    securityContext:
+      container:
+        runAsNonRoot: false
+        readOnlyRootFilesystem: false
+        runAsUser: 0
+        runAsGroup: 0
+        privileged: true
     service:
       main:
         ports:
