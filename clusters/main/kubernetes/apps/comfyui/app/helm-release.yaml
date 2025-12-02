@@ -28,7 +28,7 @@ spec:
     global:
       stopAll: false
     image:
-      repository: lecode-official/comfyui-docker
+      repository: ghcr.io/lecode-official/comfyui-docker
       pullPolicy: IfNotPresent
       tag: 0.5.0@sha256:3c1317455224184bd18aaf096f64ef4d2f289fcb2277c792d9d08b4b7b003046
     # securityContext:
