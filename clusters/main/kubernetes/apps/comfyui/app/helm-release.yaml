@@ -55,8 +55,6 @@ spec:
       main:
         enabled: true
         ingressClassName: "internal" 
-        annotations:
-          gatus.home-operations.com/enabled: "false"
         hosts:
           - host: sd.${DOMAIN_0}
             paths:
@@ -67,7 +65,7 @@ spec:
             enabled: true
           certManager:
             enabled: true
-            certificateIssuer: general-le-prod
+            certificateIssuer: domain-0-le-prod
     persistence:
       main:
         enabled: true
