@@ -58,18 +58,3 @@ spec:
         ports:
           vpn:
             port: 1194
-    workload:
-      main:
-        podSpec:
-          securityContext:
-            sysctls:
-              - name: net.ipv4.ip_forward
-                value: "1"
-              - name: net.ipv4.conf.all.src_valid_mark
-                value: "1"
-          containers:
-            main:
-              env:
-                HOST: "0.0.0.0"
-                PORT: "{{ .Values.service.main.ports.main.port }}"
-                INSECURE: false
