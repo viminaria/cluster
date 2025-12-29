@@ -66,6 +66,9 @@ spec:
         type: LoadBalancer
         loadBalancerIP: ${WG_EASY_IP}
         externalTrafficPolicy: Local
+        integrations:
+          metallb:
+            enabled: true
         ports:
           vpn:
             port: 1194
