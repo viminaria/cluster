@@ -30,7 +30,7 @@ spec:
     image:
       repository: ghcr.io/lecode-official/comfyui-docker
       pullPolicy: IfNotPresent
-      tag: 0.5.0@sha256:3c1317455224184bd18aaf096f64ef4d2f289fcb2277c792d9d08b4b7b003046
+      tag: 0.6.0@sha256:662de2a6219029556f9a5924669885c6fdceb4cc742c16c9c533136fe96d098d
     securityContext:
       container:
         runAsNonRoot: false
